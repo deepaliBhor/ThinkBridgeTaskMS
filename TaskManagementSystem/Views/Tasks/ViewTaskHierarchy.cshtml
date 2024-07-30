@@ -1,0 +1,17 @@
+﻿@model TaskManagementSystem.Models.EmployeeTaskHierarchyViewModel
+
+    @{
+        ViewData["Title"] = "View Task Hierarchy";
+    }
+
+    <h1>Tasks for @Model.Employee.SName</h1>
+
+    <div>
+        @Html.Partial("EmployeeTaskHierarchyPartial", Model)
+    </div>
+
+    <div>
+        <a asp-controller="Employees" asp-action="Index">Back to List</a>
+    </div>
+
+

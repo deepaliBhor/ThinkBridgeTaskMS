@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TaskManagementSystem.Models.Tasks>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.STitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DtDueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DtCreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DtUpdatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NEmployee)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DtDueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DtCreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DtUpdatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NEmployee.SEmail)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

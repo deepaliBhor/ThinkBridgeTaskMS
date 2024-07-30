@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TaskManagementSystem.Models.Employee>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    
+                    @Html.DisplayNameFor(model => model.SName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NManager)
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NManager.SEmail)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.NId">Edit</a>
+                </td>
+                <td><a asp-action="Details" asp-route-id="@item.NId">Details</a> </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.NId">Delete</a>
+                </td>
+                <td>
+                    @Html.ActionLink("View Task by Hierarchy", "ViewTaskHierarchy", "Tasks", new { employeeId = @item.NId })
+                </td>
+                <td>@Html.ActionLink("Tasks due in week", "dueinweek", "Tasks", new { Id = @item.NId })</td>
+                <td>@Html.ActionLink("Tasks due in month", "dueinmonth", "Tasks", new { Id = @item.NId })</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</body>
+</html>
